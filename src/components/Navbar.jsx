@@ -1,7 +1,9 @@
+import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 function Navbar() {
   const location = useLocation()
+  const [isOpen, setIsOpen] = useState(false)
 
   const links = [
     { path: '/', label: 'Home' },
@@ -20,7 +22,11 @@ function Navbar() {
         <div className="flex justify-between items-center h-16">
           
           {/* Logo */}
-          <Link to="/" className="text-xl font-bold text-sky-700 tracking-wide hover:text-pink-500 transition">
+          <Link 
+            to="/" 
+            className="text-xl font-bold text-sky-700 tracking-wide hover:text-pink-500 transition"
+            onClick={() => setIsOpen(false)}
+          >
             📸 Vichu Graphy
           </Link>
 
@@ -40,7 +46,6 @@ function Navbar() {
               </Link>
             ))}
 
-            {/* WhatsApp Button */}
             <a
               href={`https://wa.me/${whatsappNumber}?text=${message}`}
               target="_blank"
@@ -52,17 +57,46 @@ function Navbar() {
             </a>
           </div>
 
-          {/* Mobile WhatsApp Button */}
-          <div className="md:hidden">
-            <a
-              href={`https://wa.me/${whatsappNumber}?text=${message}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-gradient-to-r from-sky-500 to-pink-400 text-white px-4 py-1.5 rounded-full text-sm font-semibold shadow"
+          {/* Mobile Hamburger Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg hover:bg-sky-50 transition"
+          >
+            <span className={`bg-sky-700 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isOpen ? 'rotate-45 translate-y-1' : '-translate-y-0.5'}`}></span>
+            <span className={`bg-sky-700 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm my-0.5 ${isOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+            <span className={`bg-sky-700 block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isOpen ? '-rotate-45 -translate-y-1' : 'translate-y-0.5'}`}></span>
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+        <div className="px-4 pb-4 pt-2 space-y-1 bg-white border-t border-sky-50">
+          {links.map((link) => (
+            <Link
+              key={link.path}
+              to={link.path}
+              onClick={() => setIsOpen(false)}
+              className={`block px-4 py-3 rounded-xl font-medium transition ${
+                location.pathname === link.path
+                  ? 'bg-sky-50 text-sky-600'
+                  : 'text-gray-600 hover:bg-pink-50 hover:text-pink-500'
+              }`}
             >
-              💬 Chat
-            </a>
-          </div>
+              {link.label}
+            </Link>
+          ))}
+
+          {/* Mobile WhatsApp Button */}
+          <a
+            href={`https://wa.me/${whatsappNumber}?text=${message}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setIsOpen(false)}
+            className="flex items-center justify-center gap-2 mt-3 bg-gradient-to-r from-sky-500 to-pink-400 text-white px-5 py-3 rounded-full font-semibold shadow-md"
+          >
+            💬 WhatsApp Us
+          </a>
         </div>
       </div>
     </nav>
