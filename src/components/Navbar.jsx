@@ -7,10 +7,10 @@ function Navbar() {
 
   const links = [
     { path: '/', label: 'Home' },
-    { path: '/marriage-events', label: 'Marriage Events' },
+    { path: '/marriage-events', label: 'Events' },
     { path: '/gifts', label: 'Gifts' },
     { path: '/frames', label: 'Frames' },
-    { path: '/medals', label: 'Medals' },
+    { path: '/invitation', label: 'Invitation' },
   ]
 
   const whatsappNumber = '919092223815'

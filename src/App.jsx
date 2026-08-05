@@ -4,7 +4,7 @@ import Home from './pages/Home'
 import MarriageEvents from './pages/MarriageEvents'
 import Gifts from './pages/Gifts'
 import Frames from './pages/Frames'
-import Medals from './pages/Medals'
+import Invitations from './pages/Invitations'
 
 function App() {
   const whatsappNumber = '919092223815'
@@ -20,7 +20,7 @@ function App() {
           <Route path="/marriage-events" element={<MarriageEvents phone={whatsappNumber} />} />
           <Route path="/gifts" element={<Gifts phone={whatsappNumber} />} />
           <Route path="/frames" element={<Frames phone={whatsappNumber} />} />
-          <Route path="/medals" element={<Medals phone={whatsappNumber} />} />
+          <Route path="/invitation" element={<Invitations phone={whatsappNumber} />} />
         </Routes>
 
         {/* Floating WhatsApp Button */}
