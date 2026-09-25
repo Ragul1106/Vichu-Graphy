@@ -1,37 +1,528 @@
 @import "tailwindcss";
 
-/* Smooth scrolling */
+/* =========================================
+   GLOBAL
+========================================= */
+
 html {
   scroll-behavior: smooth;
 }
 
-/* Custom animations */
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #ffffff;
+}
+
+
+/* =========================================
+   BASIC ANIMATIONS
+========================================= */
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
 .animate-fade-in-up {
   animation: fadeInUp 0.6s ease-out forwards;
+}
+
+
+/* =========================================
+   FLOAT
+========================================= */
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
 
-/* Stagger delay helpers */
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
-.delay-400 { animation-delay: 0.4s; }
+
+/* =========================================
+   STAGGER DELAYS
+========================================= */
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+
+/* =========================================
+   PAGE TRANSITION
+========================================= */
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-page-enter {
+  animation: pageEnter 0.7s ease-out both;
+}
+
+
+/* =========================================
+   LARGE BACKGROUND GLOW
+========================================= */
+
+@keyframes floatingSlow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(60px, 40px, 0) scale(1.12);
+  }
+}
+
+.animate-floating-slow {
+  animation: floatingSlow 12s ease-in-out infinite;
+}
+
+
+@keyframes floatingReverse {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(-70px, 50px, 0) scale(1.1);
+  }
+}
+
+.animate-floating-reverse {
+  animation: floatingReverse 14s ease-in-out infinite;
+}
+
+
+/* =========================================
+   CENTER GLOW
+========================================= */
+
+@keyframes pulseSoft {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.95);
+  }
+
+  50% {
+    opacity: 0.65;
+    transform: scale(1.15);
+  }
+}
+
+.animate-pulse-soft {
+  animation: pulseSoft 8s ease-in-out infinite;
+}
+
+
+/* =========================================
+   FLOATING PARTICLES
+========================================= */
+
+.particle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 9999px;
+
+  background: rgba(14, 165, 233, 0.55);
+
+  box-shadow:
+    0 0 8px rgba(14, 165, 233, 0.45),
+    0 0 18px rgba(14, 165, 233, 0.25);
+
+  animation: particleFloat 8s ease-in-out infinite;
+}
+
+
+/* Particle positions */
+
+.particle-1 {
+  left: 5%;
+  top: 80%;
+  animation-duration: 9s;
+}
+
+.particle-2 {
+  left: 12%;
+  top: 40%;
+  width: 3px;
+  height: 3px;
+  animation-duration: 7s;
+  animation-delay: 1s;
+}
+
+.particle-3 {
+  left: 22%;
+  top: 70%;
+  width: 6px;
+  height: 6px;
+  animation-duration: 11s;
+  animation-delay: 2s;
+}
+
+.particle-4 {
+  left: 32%;
+  top: 25%;
+  width: 4px;
+  height: 4px;
+  animation-duration: 8s;
+  animation-delay: 3s;
+}
+
+.particle-5 {
+  left: 42%;
+  top: 85%;
+  width: 3px;
+  height: 3px;
+  animation-duration: 10s;
+  animation-delay: 1.5s;
+}
+
+.particle-6 {
+  left: 52%;
+  top: 55%;
+  width: 6px;
+  height: 6px;
+  animation-duration: 12s;
+  animation-delay: 2.5s;
+}
+
+.particle-7 {
+  left: 62%;
+  top: 20%;
+  width: 4px;
+  height: 4px;
+  animation-duration: 9s;
+  animation-delay: 4s;
+}
+
+.particle-8 {
+  left: 72%;
+  top: 75%;
+  width: 5px;
+  height: 5px;
+  animation-duration: 11s;
+  animation-delay: 2s;
+}
+
+.particle-9 {
+  left: 80%;
+  top: 35%;
+  width: 3px;
+  height: 3px;
+  animation-duration: 8s;
+  animation-delay: 3.5s;
+}
+
+.particle-10 {
+  left: 88%;
+  top: 65%;
+  width: 6px;
+  height: 6px;
+  animation-duration: 13s;
+  animation-delay: 1s;
+}
+
+.particle-11 {
+  left: 94%;
+  top: 18%;
+  width: 4px;
+  height: 4px;
+  animation-duration: 10s;
+  animation-delay: 4s;
+}
+
+.particle-12 {
+  left: 27%;
+  top: 50%;
+  width: 3px;
+  height: 3px;
+  animation-duration: 7s;
+  animation-delay: 5s;
+}
+
+
+/* =========================================
+   PARTICLE MOVEMENT
+========================================= */
+
+@keyframes particleFloat {
+  0% {
+    transform: translate3d(0, 30px, 0) scale(0.5);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: translate3d(35px, -80px, 0) scale(1);
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translate3d(-20px, -160px, 0) scale(0.4);
+    opacity: 0;
+  }
+}
+
+
+/* =========================================
+   PINK GLOW PARTICLES
+========================================= */
+
+.glow-particle {
+  position: absolute;
+
+  width: 12px;
+  height: 12px;
+
+  border-radius: 9999px;
+
+  background: rgba(236, 72, 153, 0.4);
+
+  filter: blur(2px);
+
+  box-shadow:
+    0 0 15px rgba(236, 72, 153, 0.5),
+    0 0 30px rgba(236, 72, 153, 0.3);
+
+  animation: glowFloat 10s ease-in-out infinite;
+}
+
+
+.glow-1 {
+  left: 18%;
+  top: 90%;
+  animation-duration: 12s;
+}
+
+.glow-2 {
+  left: 68%;
+  top: 85%;
+  animation-duration: 15s;
+  animation-delay: 3s;
+}
+
+.glow-3 {
+  left: 85%;
+  top: 55%;
+  animation-duration: 13s;
+  animation-delay: 5s;
+}
+
+
+/* =========================================
+   GLOW MOVEMENT
+========================================= */
+
+@keyframes glowFloat {
+  0% {
+    transform: translate(0, 50px) scale(0.5);
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: translate(-40px, -100px) scale(1.2);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(40px, -220px) scale(0.4);
+    opacity: 0;
+  }
+}
+
+
+/* =========================================
+   ROTATING RINGS
+========================================= */
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 18s linear infinite;
+}
+
+
+@keyframes spinReverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-spin-reverse {
+  animation: spinReverse 22s linear infinite;
+}
+
+
+/* =========================================
+   WHATSAPP BUTTON
+========================================= */
+
+@keyframes whatsappFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+.animate-whatsapp {
+  animation: whatsappFloat 3s ease-in-out infinite;
+}
+
+
+@keyframes pingSoft {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.45;
+  }
+
+  70%,
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+.animate-ping-soft {
+  animation: pingSoft 2.2s ease-out infinite;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+@keyframes footerEnter {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-footer-enter {
+  animation: footerEnter 1s ease-out both;
+}
+
+
+@keyframes footerLine {
+  0%,
+  100% {
+    transform: translateX(-50%) scaleX(0.6);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: translateX(-50%) scaleX(1.2);
+    opacity: 1;
+  }
+}
+
+.animate-footer-line {
+  animation: footerLine 4s ease-in-out infinite;
+}
+
+
+@keyframes softBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-soft-bounce {
+  animation: softBounce 3s ease-in-out infinite;
+}
+
+
+/* =========================================
+   REDUCE MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
