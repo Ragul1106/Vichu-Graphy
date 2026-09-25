@@ -1,3 +1,4 @@
+import { Camera, Video } from "lucide-react";
 function MarriageEvents({ phone }) {
   const photography = [
     {
@@ -72,7 +73,6 @@ Details: ${item.details}`;
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-12">
-
       {/* ================= PAGE HEADER ================= */}
       <div className="text-center mb-14">
         <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-3">
@@ -80,16 +80,23 @@ Details: ${item.details}`;
         </h1>
 
         <p className="text-gray-500 max-w-2xl mx-auto">
-          Professional Photography & Cinematic Videography for your special
-          day. Capture every beautiful moment of your marriage.
+          Professional Photography & Cinematic Videography for your special day.
+          Capture every beautiful moment of your marriage.
         </p>
       </div>
 
       {/* ================= PHOTOGRAPHY ================= */}
       <div className="mb-16">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
-          <span>📷</span>
-          Photography Packages
+        <h2 className="mb-7 flex items-center gap-3 text-2xl md:text-3xl font-bold text-gray-800">
+          {" "}
+          <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-sky-100 to-pink-100 text-sky-600 shadow-sm">
+            {" "}
+            <Camera size={21} strokeWidth={2.2} />{" "}
+          </span>{" "}
+          <span>
+            {" "}
+            Photography <span className="text-pink-500">Packages</span>{" "}
+          </span>{" "}
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -197,10 +204,15 @@ Details: ${item.details}`;
 
       {/* ================= VIDEOGRAPHY ================= */}
       <div>
-        <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
-          <span>🎥</span>
-          Videography Packages
-        </h2>
+       <h2 className="mb-7 flex items-center gap-3 text-2xl md:text-3xl font-bold text-gray-800">
+  <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-sky-100 to-pink-100 text-pink-500 shadow-sm">
+    <Video size={21} strokeWidth={2.2} />
+  </span>
+
+  <span>
+    Videography <span className="text-pink-500">Packages</span>
+  </span>
+</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {videography.map((item, index) => (
@@ -304,10 +316,8 @@ Details: ${item.details}`;
           ))}
         </div>
       </div>
-
     </div>
   );
 }
 
 export default MarriageEvents;
-
