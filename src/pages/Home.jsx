@@ -52,11 +52,7 @@ function Home({ phone }) {
         </div>{" "}
         {/* Hero content */}{" "}
         <div className="relative z-10 max-w-4xl mx-auto">
-          {" "}
-          <p className="mb-4 text-sm md:text-base font-semibold tracking-[0.25em] uppercase text-pink-500 animate-fade-in-up">
-            {" "}
-            Vichu Graphy{" "}
-          </p>{" "}
+          
           <h1 className=" text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-gray-800 animate-fade-in-up ">
             {" "}
             Capture Your{" "}
